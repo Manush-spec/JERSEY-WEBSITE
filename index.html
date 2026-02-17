@@ -14,9 +14,9 @@
 <h1>Elite Football Jersey Store</h1>
 <nav>
 <a href="#">Home</a>
-<a href="#gallery">Gallery</a>
 <a href="#buy">Buy</a>
-<a href="#videos">Videos</a>
+<a href="#inventory">Inventory</a>
+<a href="#contact">Contact</a>
 </nav>
 </header>
 
@@ -78,41 +78,6 @@ Arsenal    1500      M
 Chelsea    1200      L
 Barcelona  2000      XL
 </pre>
-</section>
-
-<hr>
-
-<!-- JERSEY IMAGE GALLERY -->
-<section class="container" id="gallery">
-<h2>European Jersey Gallery</h2>
-
-<div class="gallery">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521417531039-7c2b97d1b7b7" alt="Retro Jersey">
-<h3>Retro Jersey</h3>
-<p>Classic European kit</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018" alt="Home Jersey">
-<h3>Home Jersey</h3>
-<p>Modern club jersey</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6" alt="Away Jersey">
-<h3>Away Jersey</h3>
-<p>Premium away kit</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1543353071-087092ec393a" alt="Limited Jersey">
-<h3>Limited Edition</h3>
-<p>Exclusive design</p>
-</div>
-
-</div>
 </section>
 
 <hr>
@@ -191,22 +156,8 @@ Barcelona  2000      XL
 
 <hr>
 
-<!-- YOUTUBE VIDEOS -->
-<section class="container" id="videos">
-<h2>European Football Jersey Videos</h2>
-
-<div class="videos">
-<iframe src="https://www.youtube.com/embed/1w7OgIMMRc4" allowfullscreen></iframe>
-<iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" allowfullscreen></iframe>
-<iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
-</div>
-
-</section>
-
-<hr>
-
 <!-- TABLE -->
-<section class="container">
+<section class="container" id="inventory">
 <h2>Jersey Inventory Table (10 Columns, 5 Rows)</h2>
 
 <table>
@@ -232,122 +183,10 @@ Barcelona  2000      XL
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer id="contact">
 <p>© 2026 Elite Football Jerseys | All Rights Reserved</p>
 </footer>
 
 </body>
 </html>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
 
-body{
-background:#f4f6f8;
-}
-
-/* HEADER */
-header{
-background:#111;
-color:white;
-padding:20px;
-display:flex;
-justify-content:space-between;
-}
-
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-}
-
-/* HERO */
-.hero{
-background:#0077b6;
-color:white;
-text-align:center;
-padding:60px;
-}
-
-/* CONTAINER */
-.container{
-padding:40px;
-}
-
-/* GALLERY */
-.gallery{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.card{
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-width:250px;
-text-align:center;
-}
-
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:10px;
-}
-
-/* BUY FORM */
-.buy-form{
-display:flex;
-flex-direction:column;
-gap:15px;
-width:300px;
-}
-
-.buy-form input,
-.buy-form select,
-.buy-form button{
-padding:10px;
-}
-
-/* VIDEOS */
-.videos{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-iframe{
-width:350px;
-height:200px;
-}
-
-/* TABLE */
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-th,td{
-border:1px solid #ddd;
-padding:10px;
-text-align:center;
-}
-
-th{
-background:#111;
-color:white;
-}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
-}
