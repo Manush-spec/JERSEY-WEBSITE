@@ -18,32 +18,79 @@
 <a href="#inventory">Inventory</a>
 <a href="#contact">Contact</a>
 </nav>
-</header>
-<style>
+</header><style>
   body {
-    background: linear-gradient(to right, #006400, #00CED1); /* green + blue gradient */
+    background: linear-gradient(to right, #000000, #111111); /* jet black sleek base */
     text-align: center;
     font-family: Arial, sans-serif;
-    color: white;
+    color: #f8f8f8;
+  }
+
+  header, footer {
+    background-color: #ff69b4; /* bright pink accent */
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav a {
+    color: #f8f8f8;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  nav a:hover {
+    background-color: #ff69b4; /* pink highlight */
+    color: #000000; /* contrast on hover */
   }
 
   .container {
     margin: 20px auto;
     padding: 15px;
-    border: 2px solid white;
+    border: 2px solid #ff69b4;
     width: 80%;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,105,180,0.05);
     border-radius: 10px;
+  }
+
+  h2 {
+    color: #ff69b4;
   }
 
   img {
     width: 250px;
     height: auto;
     margin: 10px;
-    border: 3px solid white;
+    border: 3px solid #ff69b4;
     border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ff69b4;
+  }
+
+  .jersey-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .jersey-grid div {
+    margin: 15px;
+    text-align: center;
   }
 </style>
+
+  
 
 <!-- HERO -->
 <section class="hero">
