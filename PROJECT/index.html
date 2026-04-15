@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Legacy Kits | Football Jersey Heritage – Scrolling Home</title>
+    <title>Legacy Kits | Football Jersey Heritage – Videos & Jerseys</title>
     <style>
         * {
             margin: 0;
@@ -186,6 +186,20 @@
             margin: 2rem 0;
         }
 
+        /* video specific styling */
+        .video-wrapper {
+            width: 100%;
+            background: #00000008;
+            border-radius: 20px;
+        }
+        .custom-video {
+            width: 100%;
+            border-radius: 20px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #1e2a32;
+        }
+
         footer {
             background: #0a2f44;
             color: #cbd5e6;
@@ -199,20 +213,6 @@
             .menu-bar a { padding: 0.4rem 0.9rem; font-size: 0.75rem;}
             .container { padding: 1rem; }
             .page-section { padding: 1rem; }
-        }
-
-        /* video specific styling */
-        .video-wrapper {
-            width: 100%;
-            background: #00000008;
-            border-radius: 20px;
-        }
-        .custom-video {
-            width: 100%;
-            border-radius: 20px;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            background: #1e2a32;
         }
     </style>
 </head>
@@ -233,7 +233,7 @@
     <div id="home-hero" class="page-section">
         <h1>⚽ Football Jersey Heritage · The Beautiful Shirt</h1>
         
-        <!-- 5 formatted paragraphs: first 2 appear here, plus others distributed across sections but total >=5 across page -->
+        <!-- 5 formatted paragraphs: first 2 here, plus others across sections -->
         <div class="formatted-para"><strong>📖 Paragraph 1:</strong> Football jerseys are more than sportswear — they are wearable history. Each stitch, badge, and stripe tells a story of triumph, identity, and belonging. From the muddy pitches of the 19th century to today's high-tech fabrics, the jersey has evolved into a global symbol of passion.</div>
         <div class="formatted-para"><strong>🏆 Paragraph 2:</strong> The heritage of football shirts dates back to 1870s England when clubs wore heavy woolen garments. Today, retro kits are highly sought-after collectibles, with some vintage shirts auctioning for thousands of pounds, proving that a jersey can be both sportswear and cultural artifact.</div>
         
@@ -244,12 +244,11 @@
                     <img src="https://picsum.photos/id/26/400/260" alt="Vintage football jersey collection">
                     <div class="caption">📸 Vintage Jersey Showcase — 1970s classics</div>
                 </div>
-                <!-- ADDED VIDEO 1: heritage jersey story -->
+                <!-- VIDEO 1: heritage jersey story -->
                 <div class="media-container">
                     <video class="custom-video" controls poster="https://picsum.photos/id/20/400/240">
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/gz2Lk4gCQjQ?si=gJvCtJ9x9Aor3xH7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/KqsuZnnLI8g?si=ALaY8qPBXbAnxqe_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ECJmZiE-I3s?si=O-ZP-SX7EEmqKDlA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support video.
                     </video>
                     <div class="caption">🎥 The evolution of football kits (video story)</div>
                 </div>
@@ -259,9 +258,12 @@
                     <img src="https://picsum.photos/id/42/400/260" alt="Fan wearing iconic jersey">
                     <div class="caption">🧣 Fans & Their Shirts — Emotional Connection</div>
                 </div>
+                <!-- VIDEO 2: fan culture and shirt collecting -->
                 <div class="media-container">
-                    <img src="https://picsum.photos/id/64/400/260" alt="Jersey collection display">
-                    <div class="caption">🏅 Match-worn memorabilia</div>
+                    <video class="custom-video" controls poster="https://picsum.photos/id/64/400/240">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="caption">📹 Why fans treasure match-worn jerseys</div>
                 </div>
             </div>
         </div>
@@ -313,13 +315,12 @@
             <div class="media-container"><img src="https://picsum.photos/id/29/300/200" alt="Chelsea 2005 jersey"><div class="caption">⭐ 2005 Premier League champion</div></div>
             <div class="media-container"><img src="https://picsum.photos/id/32/300/200" alt="Chelsea 2021 jersey"><div class="caption">🏆 2021 UCL winner edition</div></div>
         </div>
-        <!-- ADDED VIDEO 2: Chelsea iconic moments -->
+        <!-- VIDEO 3: Chelsea iconic moments -->
         <div class="media-container">
             <video class="custom-video" controls poster="https://picsum.photos/id/104/400/240">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/ECJmZiE-I3s?si=O-ZP-SX7EEmqKDlA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/9y-6BRrT-i0?si=5XYKeYoW9yIi2Ile" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
-            <div class="caption">💙 Chelsea FC: Stamford Bridge Legacy (video)</div>
+            <div class="caption">💙 Chelsea FC: Stamford Bridge Legacy & Iconic Kits (video)</div>
         </div>
         <!-- TABLE 2: second full-length table -->
         <h2>📋 Chelsea Kit Milestones</h2>
@@ -343,12 +344,19 @@
             <div class="col"><div class="media-container"><img src="https://picsum.photos/id/44/400/250" alt="Barca 1992 Dream Team"><div class="caption">🌟 Dream Team 1992 kit</div></div></div>
             <div class="col"><div class="media-container"><img src="https://picsum.photos/id/66/400/250" alt="Messi 2009 jersey"><div class="caption">🐐 2009 Sextuple shirt</div></div></div>
         </div>
-        <!-- ADDED VIDEO 3: Barça jersey evolution video -->
+        <!-- VIDEO 4: Barça jersey evolution video -->
         <div class="media-container">
             <video class="custom-video" controls poster="https://picsum.photos/id/77/800/300">
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
-            <div class="caption">🔴🔵 Blaugrana through the decades (video)</div>
+            <div class="caption">🔴🔵 Blaugrana through the decades — Cruyff to Messi (video)</div>
+        </div>
+        <!-- extra video for Barca -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/155/800/300">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">🏟️ Camp Nou: The spiritual home of the Barça jersey</div>
         </div>
         <div class="formatted-para"><strong>🎗️ More than a shirt:</strong> In 2010, Barça wore UNICEF logo, first club paying to display a charity. Their jersey heritage includes the famous "senyera" stripes on the sleeve — pride of Catalonia.</div>
     </div>
@@ -362,12 +370,19 @@
             <div class="media-container"><img src="https://picsum.photos/id/80/300/200" alt="2008 Ronaldo jersey"><div class="caption">⚡ 2008 CR7 era</div></div>
             <div class="media-container"><img src="https://picsum.photos/id/90/300/200" alt="1986 away jersey"><div class="caption">🎽 1986 Adidas original</div></div>
         </div>
-        <!-- ADDED VIDEO 4: Man United iconic shirt history -->
+        <!-- VIDEO 5: Man United iconic shirt history -->
         <div class="media-container">
             <video class="custom-video" controls poster="https://picsum.photos/id/80/400/240">
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
-            <div class="caption">🔴 The Red Jersey: United's legacy (video)</div>
+            <div class="caption">🔴 The Red Jersey: Manchester United's legacy (video)</div>
+        </div>
+        <!-- VIDEO 6: Old Trafford atmosphere -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/82/400/240">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">🏟️ Theatre of Dreams — United shirt through the ages</div>
         </div>
         <div class="formatted-para"><strong>💫 The Red Army:</strong> The United jersey holds memories of Sir Matt Busby, Sir Alex Ferguson, and the unforgettable comeback spirit. The iconic number 7 shirt — worn by Best, Cantona, Beckham, Ronaldo — is football royalty.</div>
     </div>
@@ -380,12 +395,19 @@
             <div class="col"><div class="media-container"><img src="https://picsum.photos/id/100/400/240" alt="Di Stefano era"><div class="caption">🏅 Di Stéfano 1950s</div></div></div>
             <div class="col"><div class="media-container"><img src="https://picsum.photos/id/104/400/240" alt="Zidane jersey"><div class="caption">🎩 Zidane 2002 final shirt</div></div></div>
         </div>
-        <!-- ADDED VIDEO 5: Real Madrid white jersey heritage -->
+        <!-- VIDEO 7: Real Madrid white jersey heritage -->
         <div class="media-container">
             <video class="custom-video" controls poster="https://picsum.photos/id/106/800/250">
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
             <div class="caption">⚪ Real Madrid: The All-White legacy (video)</div>
+        </div>
+        <!-- VIDEO 8: Bernabeu legends -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/108/800/250">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">👑 Bernabéu legends & the iconic white jersey</div>
         </div>
         <div class="formatted-para"><strong>✨ Galácticos shine:</strong> The white jersey has been worn by legends like Zidane, Ronaldo Nazário, and Cristiano Ronaldo, becoming a symbol of winning mentality and 14 Champions League titles.</div>
     </div>
@@ -396,20 +418,22 @@
         <div class="formatted-para"><strong>✍️ Paragraph 4:</strong> The first football jerseys were simple woolen shirts with heavy cotton. Over decades, synthetic fabrics improved comfort and performance. Today, clubs release retro collections to honor the old-school designs that fans adore.</div>
         <div class="formatted-para"><strong>🌍 Paragraph 5:</strong> Collectors hunt for match-worn vintage jerseys, some auctioned for thousands. The cultural significance of shirts like Maradona's Napoli or Beckham's Manchester United 7 transcends sport, becoming wearable art and historical artifacts.</div>
         
-        <!-- extra video for heritage section (makes total videos >2, enhancing richness) -->
+        <!-- extra videos for heritage section -->
         <div class="two-columns">
             <div class="col">
                 <div class="media-container">
                     <video class="custom-video" controls poster="https://picsum.photos/id/145/400/220">
                         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                     </video>
-                    <div class="caption">📼 Retro kits: a journey through time</div>
+                    <div class="caption">📼 Retro kits: a journey through time (video)</div>
                 </div>
             </div>
             <div class="col">
                 <div class="media-container">
-                    <img src="https://picsum.photos/id/157/400/220" alt="vintage jersey wall">
-                    <div class="caption">🧵 1980s retro classics collection</div>
+                    <video class="custom-video" controls poster="https://picsum.photos/id/147/400/220">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="caption">🧵 How football shirts are made — heritage craftsmanship</div>
                 </div>
             </div>
         </div>
@@ -418,6 +442,14 @@
             <div class="media-container"><img src="https://picsum.photos/id/145/300/180" alt="1930s jersey"><div class="caption">📸 1930s wool jersey</div></div>
             <div class="media-container"><img src="https://picsum.photos/id/157/300/180" alt="1980s retro"><div class="caption">🧵 1980s retro classic</div></div>
             <div class="media-container"><img src="https://picsum.photos/id/162/300/180" alt="modern heritage"><div class="caption">⚡ Modern heritage edition</div></div>
+        </div>
+        
+        <!-- VIDEO 9: vintage collection showcase -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/150/800/300">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">🏆 World Cup vintage jerseys — collector's dream</div>
         </div>
         
         <div class="nested-list-box">
@@ -450,12 +482,12 @@
 <footer>
     <p>© 2025 Legacy Kits — Celebrating Football Jersey Heritage | Chelsea · Barcelona · Manchester United · Real Madrid</p>
     <p style="margin-top: 8px;">⚽ “A jersey is not just cloth — it's a memory woven with passion and glory” ⚽</p>
-    <p style="margin-top: 5px; font-size: 0.8rem;">🎥 Exclusive heritage videos • Iconic shirt stories • Retro collection</p>
+    <p style="margin-top: 5px; font-size: 0.8rem;">🎥 9+ exclusive heritage videos • Iconic shirt stories • Retro collection • 4K highlights</p>
 </footer>
 
 <script>
     // smooth scroll behavior is already native via CSS scroll-behavior: smooth
-    // additional active highlight for menu while scrolling (optional polish)
+    // active highlight for menu while scrolling
     const sections = document.querySelectorAll('.page-section');
     const navLinks = document.querySelectorAll('.menu-bar a');
 
