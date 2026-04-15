@@ -1,545 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Classic Football Jerseys | Heritage & Icons</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: all 0.2s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Legacy Kits | Football Jersey Heritage – Scrolling Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: #d4eaff; /* light blue background as required */
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      color: #0a2f44;
-      line-height: 1.5;
-    }
+        body {
+            background-color: #d4eaff;  /* light blue background */
+            font-family: 'Segoe UI', 'Roboto', 'Poppins', sans-serif;
+            color: #0a2f44;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
 
-    /* ========== MENU BAR (at least 5 items) ========== */
-    .menu-bar {
-      background: #0a2f44;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .menu-bar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      background: #1e4a6e;
-      transition: 0.2s;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-    }
-    .menu-bar a:hover {
-      background: #6a1b9a;  /* purple hover effect for menu as extra */
-      transform: scale(1.02);
-      box-shadow: 0 2px 8px rgba(106,27,154,0.4);
-    }
+        /* ========== MENU BAR (sticky, at least 5 items) ========== */
+        .menu-bar {
+            background: #0a2f44;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .menu-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 1.3rem;
+            border-radius: 40px;
+            background: #1e4a6e;
+            transition: 0.25s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        .menu-bar a:hover {
+            background: #6a1b9a;  /* purple hover */
+            transform: scale(1.02);
+        }
 
-    /* main container */
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-    /* page sections (each page = separate section, show/hide with JS) */
-    .page {
-      display: none;
-      animation: fade 0.3s ease;
-    }
-    .active-page {
-      display: block;
-    }
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(6px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
+        /* each page/section is now a scroll section */
+        .page-section {
+            scroll-margin-top: 80px;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 250, 0.5);
+            border-radius: 32px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
 
-    /* headings */
-    h1, h2 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-left: 6px solid #6a1b9a;
-      padding-left: 1rem;
-    }
-    h1 { font-size: 2.2rem; margin-top: 0; }
-    h2 { font-size: 1.8rem; margin-top: 1.5rem; }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            border-left: 6px solid #6a1b9a;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin: 1.5rem 0 1rem;
+            color: #0a2f44;
+        }
 
-    /* formatted paragraphs (at least 5 across pages) */
-    .para-card {
-      background: rgba(255,255,240,0.7);
-      padding: 1.2rem;
-      border-radius: 24px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      font-size: 1.05rem;
-    }
+        /* formatted paragraphs */
+        .formatted-para {
+            background: rgba(255,255,250,0.9);
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            font-size: 1rem;
+            border-left: 4px solid #6a1b9a;
+        }
 
-    /* 2+ columns layout for images & content */
-    .two-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    .col {
-      flex: 1;
-      min-width: 220px;
-    }
+        /* 2+ columns layout */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .col {
+            flex: 1;
+            min-width: 250px;
+        }
 
-    /* IMAGES & VIDEOS in containers + Heatmap style: use hover effect with purple */
-    .media-card {
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      margin-bottom: 1.8rem;
-    }
-    .media-card img, .media-card video {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      height: auto;
-      transition: 0.25s;
-    }
-    /* purple hover effect on images + tables (images inside media-card) */
-    .media-card:hover img, .media-card:hover video {
-      filter: drop-shadow(0 0 6px #b77dff) brightness(1.02);
-      transform: scale(1.01);
-    }
-    .media-card:hover {
-      box-shadow: 0 12px 28px rgba(106, 27, 154, 0.3);
-      border: 1px solid #c084fc;
-    }
+        /* Image & video containers with hover effect (purple) */
+        .media-container {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .media-container img, .media-container video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        /* PURPLE HOVER EFFECT on images + video containers */
+        .media-container:hover {
+            box-shadow: 0 12px 28px rgba(106, 27, 154, 0.35);
+            transform: translateY(-3px);
+        }
+        .media-container:hover img {
+            filter: brightness(1.02) drop-shadow(0 0 6px #b77dff);
+            transform: scale(1.01);
+        }
+        .media-container:hover video {
+            filter: drop-shadow(0 0 5px #b77dff);
+        }
+        .caption {
+            padding: 0.7rem;
+            text-align: center;
+            background: #fef9e6;
+            font-weight: 500;
+        }
 
-    /* table styling with purple hover effect */
-    .styled-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .styled-table th, .styled-table td {
-      padding: 12px 16px;
-      text-align: left;
-      border-bottom: 1px solid #cbd5e1;
-    }
-    .styled-table th {
-      background-color: #0a2f44;
-      color: white;
-      font-weight: 600;
-    }
-    .styled-table tr:hover {
-      background-color: #f3e8ff;
-    }
-    /* purple hover effect on entire table */
-    .styled-table:hover {
-      box-shadow: 0 0 0 2px #b77dff, 0 6px 18px rgba(106,27,154,0.2);
-    }
+        /* TABLE styling with purple hover effect */
+        .jersey-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .jersey-table th, .jersey-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .jersey-table th {
+            background: #0a2f44;
+            color: white;
+            font-weight: 600;
+        }
+        .jersey-table tr {
+            transition: background 0.2s;
+        }
+        /* PURPLE HOVER on table rows */
+        .jersey-table tr:hover {
+            background-color: #f3e8ff;
+        }
+        .jersey-table:hover {
+            box-shadow: 0 0 0 2px #b77dff, 0 4px 12px rgba(106,27,154,0.2);
+        }
 
-    /* nested list with at least 5 items */
-    .nested-list {
-      background: #fef9e6;
-      padding: 1.5rem 2rem;
-      border-radius: 28px;
-      margin: 1.5rem 0;
-    }
-    .nested-list ul {
-      margin-left: 1.8rem;
-    }
-    .nested-list li {
-      margin: 0.6rem 0;
-    }
+        /* Nested list with 5+ items */
+        .nested-list-box {
+            background: #fef9e6;
+            padding: 1.5rem 2rem;
+            border-radius: 28px;
+            margin: 1.5rem 0;
+        }
+        .nested-list-box ul {
+            margin-left: 1.8rem;
+        }
+        .nested-list-box li {
+            margin: 0.7rem 0;
+        }
 
-    /* footer styling */
-    footer {
-      background: #0a2f44;
-      color: #cbd5e6;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      border-top-left-radius: 32px;
-      border-top-right-radius: 32px;
-    }
-    footer a {
-      color: #ffd966;
-      text-decoration: none;
-    }
+        /* Jersey grid for club sections */
+        .jersey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
 
-    /* jersey showcase row */
-    .jersey-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: space-between;
-      margin: 2rem 0;
-    }
-    .jersey-item {
-      flex: 1;
-      min-width: 170px;
-      background: white;
-      border-radius: 24px;
-      padding: 0.8rem;
-      text-align: center;
-      transition: 0.2s;
-    }
-    .btn {
-      background: #0a2f44;
-      color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
+        footer {
+            background: #0a2f44;
+            color: #cbd5e6;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 32px 32px 0 0;
+        }
 
-    /* custom jersey spotlight (new images dedicated to jersey theme) */
-    .jersey-spotlight {
-      background: #fffaf0;
-      border-radius: 32px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-    }
-    .image-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    .jersey-thumb {
-      flex: 1;
-      min-width: 160px;
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: 0.2s;
-    }
-    .jersey-thumb img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-    }
-    .jersey-thumb:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 22px rgba(106,27,154,0.25);
-      border: 1px solid #b77dff;
-    }
-    .caption {
-      padding: 0.6rem;
-      font-weight: bold;
-      background: #f2e8d5;
-    }
+        @media (max-width: 700px) {
+            .menu-bar a { padding: 0.4rem 0.9rem; font-size: 0.75rem;}
+            .container { padding: 1rem; }
+            .page-section { padding: 1rem; }
+        }
 
-    @media (max-width: 700px) {
-      .menu-bar a { padding: 0.3rem 0.8rem; font-size: 0.8rem;}
-      .container { padding: 1rem;}
-      .jersey-thumb { min-width: 130px; }
-      .jersey-thumb img { height: 140px; }
-    }
-  </style>
+        /* video specific styling */
+        .video-wrapper {
+            width: 100%;
+            background: #00000008;
+            border-radius: 20px;
+        }
+        .custom-video {
+            width: 100%;
+            border-radius: 20px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #1e2a32;
+        }
+    </style>
 </head>
 <body>
 
-<!-- MENU BAR - at least 5 menu items: Home, Chelsea, Barca, Man United, Real Madrid, Heritage+ (6 items) -->
+<!-- MENU BAR: 6 items (more than 5) - all link to sections (smooth scroll) -->
 <div class="menu-bar">
-  <a href="#" data-page="home">🏠 HOME</a>
-  <a href="#" data-page="chelsea">🔵 CHELSEA</a>
-  <a href="#" data-page="barca">🔴 BARÇA</a>
-  <a href="#" data-page="manutd">🔴 MAN UTD</a>
-  <a href="#" data-page="realmadrid">⚪ REAL MADRID</a>
-  <a href="#" data-page="heritage">📜 HERITAGE</a>
+    <a href="#home-hero">🏠 HOME</a>
+    <a href="#chelsea-section">💙 CHELSEA</a>
+    <a href="#barca-section">🔴🔵 BARÇA</a>
+    <a href="#manutd-section">🔴 MAN UNITED</a>
+    <a href="#realmadrid-section">⚪ REAL MADRID</a>
+    <a href="#heritage-section">📜 HERITAGE</a>
 </div>
 
 <div class="container">
-  <!-- PAGE 1: HOME (includes dedicated 5 new jersey images as requested) -->
-  <div id="home-page" class="page active-page">
-    <h1>⚽ Jersey Heritage · The Beautiful Shirt</h1>
-    
-    <!-- 5 NEW IMAGES ABOUT JERSEYS (classic football shirts collection) -->
-    <div class="jersey-spotlight">
-      <h2>✨ 5 Iconic Football Jerseys Through History</h2>
-      <div class="image-row">
-        <div class="jersey-thumb">
-          <img src="https://picsum.photos/id/36/300/200" alt="1990s Retro Jersey">
-          <div class="caption">🇮🇹 1990 Italia Kit</div>
+    <!-- ==================== HOME HERO SECTION (intro) ==================== -->
+    <div id="home-hero" class="page-section">
+        <h1>⚽ Football Jersey Heritage · The Beautiful Shirt</h1>
+        
+        <!-- 5 formatted paragraphs: first 2 appear here, plus others distributed across sections but total >=5 across page -->
+        <div class="formatted-para"><strong>📖 Paragraph 1:</strong> Football jerseys are more than sportswear — they are wearable history. Each stitch, badge, and stripe tells a story of triumph, identity, and belonging. From the muddy pitches of the 19th century to today's high-tech fabrics, the jersey has evolved into a global symbol of passion.</div>
+        <div class="formatted-para"><strong>🏆 Paragraph 2:</strong> The heritage of football shirts dates back to 1870s England when clubs wore heavy woolen garments. Today, retro kits are highly sought-after collectibles, with some vintage shirts auctioning for thousands of pounds, proving that a jersey can be both sportswear and cultural artifact.</div>
+        
+        <!-- 2 columns layout with images and VIDEOS (embedded video inside container) -->
+        <div class="two-columns">
+            <div class="col">
+                <div class="media-container">
+                    <img src="https://picsum.photos/id/26/400/260" alt="Vintage football jersey collection">
+                    <div class="caption">📸 Vintage Jersey Showcase — 1970s classics</div>
+                </div>
+                <!-- ADDED VIDEO 1: heritage jersey story -->
+                <div class="media-container">
+                    <video class="custom-video" controls poster="https://picsum.photos/id/20/400/240">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support video.
+                    </video>
+                    <div class="caption">🎥 The evolution of football kits (video story)</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="media-container">
+                    <img src="https://picsum.photos/id/42/400/260" alt="Fan wearing iconic jersey">
+                    <div class="caption">🧣 Fans & Their Shirts — Emotional Connection</div>
+                </div>
+                <div class="media-container">
+                    <img src="https://picsum.photos/id/64/400/260" alt="Jersey collection display">
+                    <div class="caption">🏅 Match-worn memorabilia</div>
+                </div>
+            </div>
         </div>
-        <div class="jersey-thumb">
-          <img src="https://picsum.photos/id/28/300/200" alt="Brazil Yellow Jersey">
-          <div class="caption">🇧🇷 1970 Brazil Pelé</div>
+
+        <!-- TABLE 1: Full-length table -->
+        <h2>📊 Iconic Clubs & Their Jersey Evolution</h2>
+        <table class="jersey-table">
+            <thead><tr><th>Club</th><th>Founded</th><th>Signature Color</th><th>Legendary Player</th><th>Classic Era</th></tr></thead>
+            <tbody>
+                <tr><td>Chelsea FC</td><td>1905</td><td>Royal Blue</td><td>Frank Lampard</td><td>2004-2010</td></tr>
+                <tr><td>FC Barcelona</td><td>1899</td><td>Blaugrana</td><td>Lionel Messi</td><td>2008-2015</td></tr>
+                <tr><td>Manchester United</td><td>1878</td><td>Red</td><td>Eric Cantona</td><td>1990s</td></tr>
+                <tr><td>Real Madrid</td><td>1902</td><td>All-White</td><td>Alfredo Di Stéfano</td><td>1950s/2010s</td></tr>
+                <tr><td>Liverpool FC</td><td>1892</td><td>Red</td><td>Steven Gerrard</td><td>1970s-80s</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Nested list with at least 5 items -->
+        <div class="nested-list-box">
+            <h3>🏷️ Jersey Heritage — Nested Facts</h3>
+            <ul>
+                <li>⚡ Material Evolution
+                    <ul><li>Heavy wool (1880s-1920s)</li><li>Cotton & polyester blends (1960s)</li><li>Breathable performance fabrics (2000s)</li><li>Eco-friendly recycled polyester (2020s)</li></ul>
+                </li>
+                <li>🏅 Badge Changes
+                    <ul><li>Chelsea's lion rampant (1952)</li><li>Barcelona's senyera incorporation</li><li>Man United's ship badge (1970s)</li><li>Real Madrid's crown addition</li></ul>
+                </li>
+                <li>🎨 Iconic Sponsors
+                    <ul><li>Sharp (Man Utd 80s-90s)</li><li>Commodore (Chelsea)</li><li>Kappa (Barca 90s)</li><li>Fly Emirates (Real Madrid)</li></ul>
+                </li>
+                <li>🌍 World Cup Influence
+                    <ul><li>1994 USA special editions</li><li>1998 France-inspired collars</li></ul>
+                </li>
+                <li>🕰️ Retro Revival
+                    <ul><li>Third kits replicating 90s designs</li><li>Anniversary heritage collections</li></ul>
+                </li>
+            </ul>
+            <p><em>— Over 5 nested items showcasing jersey legacy —</em></p>
         </div>
-        <div class="jersey-thumb">
-          <img src="https://picsum.photos/id/52/300/200" alt="Germany Classic Jersey">
-          <div class="caption">🇩🇪 1990 Germany</div>
-        </div>
-        <div class="jersey-thumb">
-          <img src="https://picsum.photos/id/60/300/200" alt="Argentina Albiceleste">
-          <div class="caption">🇦🇷 1986 Maradona</div>
-        </div>
-        <div class="jersey-thumb">
-          <img src="https://picsum.photos/id/64/300/200" alt="Netherlands Orange">
-          <div class="caption">🇳🇱 1974 Total Football</div>
-        </div>
-      </div>
-      <p style="margin-top: 1rem; text-align: center; font-style: italic;">🎽 Each jersey tells a story of triumph, passion, and legacy.</p>
+        <div class="formatted-para"><strong>📜 Paragraph 3:</strong> The connection between a fan and their club's shirt transcends trophies. It carries the sweat of legends, the roar of stadiums, and memories of last-minute winners. Heritage collections keep this magic alive for new generations.</div>
     </div>
 
-    <!-- formatted paragraphs -->
-    <div class="para-card">
-      <strong>📖 Paragraph 1:</strong> Football jerseys are more than sportswear — they are emblems of identity, pride, and culture. From the iconic vertical stripes of FC Barcelona to the royal white of Real Madrid, each jersey tells a story of victories, legends, and communities.
-    </div>
-    <div class="para-card">
-      <strong>🏆 Paragraph 2:</strong> The heritage of football shirts dates back to the late 19th century, when clubs wore heavy cotton. Today, advanced fabrics and retro designs celebrate the legacy. Classic kits like the 1990s Manchester United away jersey remain collector treasures.
-    </div>
-    
-    <!-- 2 columns layout (images and video container) -->
-    <div class="two-columns">
-      <div class="col">
-        <div class="media-card">
-          <img src="https://picsum.photos/id/26/400/250" alt="classic jersey collage">
-          <div style="padding:0.6rem; background:#fff3e0;">🏅 Vintage Jersey Collage - 80s style</div>
+    <!-- ==================== CHELSEA SECTION ==================== -->
+    <div id="chelsea-section" class="page-section">
+        <h1>💙 Chelsea FC · The Pride of London</h1>
+        <div class="formatted-para"><strong>💙 Chelsea Heritage:</strong> Founded in 1905, Chelsea's royal blue became iconic during the 1960s. From the "Pensioners" to modern European giants, the jersey features the famous lion rampant crest. The 1970 FA Cup final shirt remains one of the most beloved classics.</div>
+        <div class="jersey-grid">
+            <div class="media-container"><img src="https://picsum.photos/id/22/300/200" alt="Chelsea 1970 jersey"><div class="caption">🏆 1970 FA Cup shirt</div></div>
+            <div class="media-container"><img src="https://picsum.photos/id/29/300/200" alt="Chelsea 2005 jersey"><div class="caption">⭐ 2005 Premier League champion</div></div>
+            <div class="media-container"><img src="https://picsum.photos/id/32/300/200" alt="Chelsea 2021 jersey"><div class="caption">🏆 2021 UCL winner edition</div></div>
         </div>
-        <div class="media-card">
-          <!-- video about heritage -->
-          <video controls style="width:100%" poster="https://picsum.photos/id/20/400/220">
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KqsuZnnLI8g?si=bMyOgIsMIWKN1rj1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sefyFEjQIVQ?si=u1ctx8Nijv_6B-y5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- <iframe width="560" height="315" src="https://www.youtube.com/embed/ECJmZiE-I3s?si=myNiOvbBp9g_Pkwp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>           
-         
-          </video>
-          <div style="padding:0.5rem;">🎥 Heritage moments – football through ages</div>
+        <!-- ADDED VIDEO 2: Chelsea iconic moments -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/104/400/240">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">💙 Chelsea FC: Stamford Bridge Legacy (video)</div>
         </div>
-      </div>
-      <div class="col">
-        <div class="media-card">
-          <img src="https://picsum.photos/id/33/400/250" alt="historical jersey">
-          <div style="padding:0.5rem;">✨ Vintage cotton jerseys – 1970s style</div>
+        <!-- TABLE 2: second full-length table -->
+        <h2>📋 Chelsea Kit Milestones</h2>
+        <table class="jersey-table">
+            <thead><tr><th>Season</th><th>Kit Design</th><th>Major Honor</th><th>Legend</th></tr></thead>
+            <tbody>
+                <tr><td>1970-72</td><td>Classic Blue w/ white trim</td><td>FA Cup Winner</td><td>Peter Osgood</td></tr>
+                <tr><td>2004-06</td><td>Fly Emirates sponsor, dark blue</td><td>Back-to-back PL titles</td><td>Frank Lampard</td></tr>
+                <tr><td>2012-13</td><td>Samsung shirt, golden accents</td><td>Champions League triumph</td><td>Didier Drogba</td></tr>
+                <tr><td>2020-21</td><td>3 Lion crest, Nike design</td><td>UCL glory again</td><td>N'Golo Kanté</td></tr>
+            </tbody>
+        </table>
+        <div class="formatted-para"><strong>✨ Blue Legacy:</strong> Chelsea's shirt embodies resilience — from the 1970 'battle' final to the 2012 Munich miracle, the blue jersey stands for dramatic comebacks and Stamford Bridge magic.</div>
+    </div>
+
+    <!-- ==================== BARCELONA SECTION ==================== -->
+    <div id="barca-section" class="page-section">
+        <h1>🔴🔵 FC Barcelona · Més que un club</h1>
+        <div class="formatted-para"><strong>🔵🔴 Blaugrana Heritage:</strong> Founded in 1899, Barça's vertical stripes symbolize Catalan identity. The jersey represents more than football — it's a banner of culture and democracy. From Cruyff to Messi, the stripes carry magic and excellence.</div>
+        <div class="two-columns">
+            <div class="col"><div class="media-container"><img src="https://picsum.photos/id/44/400/250" alt="Barca 1992 Dream Team"><div class="caption">🌟 Dream Team 1992 kit</div></div></div>
+            <div class="col"><div class="media-container"><img src="https://picsum.photos/id/66/400/250" alt="Messi 2009 jersey"><div class="caption">🐐 2009 Sextuple shirt</div></div></div>
         </div>
-        <div class="media-card">
-          <img src="https://picsum.photos/id/42/400/250" alt="fan holding shirt">
-          <div>🧣 Fan culture & shirt collecting</div>
+        <!-- ADDED VIDEO 3: Barça jersey evolution video -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/77/800/300">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">🔴🔵 Blaugrana through the decades (video)</div>
         </div>
-      </div>
+        <div class="formatted-para"><strong>🎗️ More than a shirt:</strong> In 2010, Barça wore UNICEF logo, first club paying to display a charity. Their jersey heritage includes the famous "senyera" stripes on the sleeve — pride of Catalonia.</div>
     </div>
 
-    <!-- TABLE 1: Full-length table with jersey details -->
-    <h2>📊 Iconic Jersey Evolution Table</h2>
-    <table class="styled-table">
-      <thead>
-        <tr><th>Club</th><th>First Kit Year</th><th>Signature Color</th><th>Legendary Player</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Chelsea FC</td><td>1905</td><td>Royal Blue</td><td>Frank Lampard</td></tr>
-        <tr><td>FC Barcelona</td><td>1899</td><td>Blaugrana (Blue & Red)</td><td>Lionel Messi</td></tr>
-        <tr><td>Manchester United</td><td>1878</td><td>Red Devils</td><td>Eric Cantona</td></tr>
-        <tr><td>Real Madrid</td><td>1902</td><td>All-White</td><td>Alfredo Di Stéfano</td></tr>
-        <tr><td>Bayern Munich</td><td>1900</td><td>Red & White</td><td>Franz Beckenbauer</td></tr>
-      </tbody>
-    </table>
+    <!-- ==================== MANCHESTER UNITED SECTION ==================== -->
+    <div id="manutd-section" class="page-section">
+        <h1>🔴 Manchester United · Theatre of Dreams</h1>
+        <div class="formatted-para"><strong>🔴 Red Devils Icon:</strong> Since the Busby Babes to the 1999 treble, United's red jersey became a global phenomenon. The classic white collar and black shorts from the 1990s is an iconic silhouette recognized worldwide.</div>
+        <div class="jersey-grid">
+            <div class="media-container"><img src="https://picsum.photos/id/78/300/200" alt="1999 treble kit"><div class="caption">🏆 1999 Treble winning shirt</div></div>
+            <div class="media-container"><img src="https://picsum.photos/id/80/300/200" alt="2008 Ronaldo jersey"><div class="caption">⚡ 2008 CR7 era</div></div>
+            <div class="media-container"><img src="https://picsum.photos/id/90/300/200" alt="1986 away jersey"><div class="caption">🎽 1986 Adidas original</div></div>
+        </div>
+        <!-- ADDED VIDEO 4: Man United iconic shirt history -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/80/400/240">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">🔴 The Red Jersey: United's legacy (video)</div>
+        </div>
+        <div class="formatted-para"><strong>💫 The Red Army:</strong> The United jersey holds memories of Sir Matt Busby, Sir Alex Ferguson, and the unforgettable comeback spirit. The iconic number 7 shirt — worn by Best, Cantona, Beckham, Ronaldo — is football royalty.</div>
+    </div>
 
-    <!-- Nested list with at least 5 items (nested) -->
-    <div class="nested-list">
-      <h3>🏷️ Jersey Heritage Top Facts (Nested List)</h3>
-      <ul>
-        <li>⚡ Materials Evolution
-          <ul><li>Heavy cotton (1900s)</li><li>Polyester revolution (1970s)</li><li>Eco-friendly recycled fabric (2020s)</li></ul>
-        </li>
-        <li>🏅 Badge & Crest Changes
-          <ul><li>Real Madrid crown addition (1920)</li><li>Barcelona senyera homage</li><li>Manchester United ship badge era</li></ul>
-        </li>
-        <li>🎨 Iconic Sponsor Moments
-          <ul><li>Sharp (Man Utd 80s-90s)</li><li>Kappa (Chelsea 2000s)</li><li>Qatar Airways (Barca modern)</li></ul>
-        </li>
-        <li>🌍 World Cup Influence
-          <ul><li>Club shirts borrowing national colours</li><li>1994 special edition kits</li></ul>
-        </li>
-        <li>🕰️ Retro Revival Trend
-          <ul><li>Third kits replicating 90s designs</li><li>Anniversary editions</li></ul>
-        </li>
-      </ul>
-      <p><em>— More than 5 nested items displayed above —</em></p>
+    <!-- ==================== REAL MADRID SECTION ==================== -->
+    <div id="realmadrid-section" class="page-section">
+        <h1>⚪ Real Madrid · La Casa Blanca</h1>
+        <div class="formatted-para"><strong>⚪ All-White Elegance:</strong> Since 1902, Real Madrid's pure white kit symbolizes royalty, class, and European dominance. The shirt has evolved with golden accents but remains iconic for its simplicity and winning mentality.</div>
+        <div class="two-columns">
+            <div class="col"><div class="media-container"><img src="https://picsum.photos/id/100/400/240" alt="Di Stefano era"><div class="caption">🏅 Di Stéfano 1950s</div></div></div>
+            <div class="col"><div class="media-container"><img src="https://picsum.photos/id/104/400/240" alt="Zidane jersey"><div class="caption">🎩 Zidane 2002 final shirt</div></div></div>
+        </div>
+        <!-- ADDED VIDEO 5: Real Madrid white jersey heritage -->
+        <div class="media-container">
+            <video class="custom-video" controls poster="https://picsum.photos/id/106/800/250">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="caption">⚪ Real Madrid: The All-White legacy (video)</div>
+        </div>
+        <div class="formatted-para"><strong>✨ Galácticos shine:</strong> The white jersey has been worn by legends like Zidane, Ronaldo Nazário, and Cristiano Ronaldo, becoming a symbol of winning mentality and 14 Champions League titles.</div>
     </div>
-    <!-- additional formatted paragraph 3 -->
-    <div class="para-card">
-      <strong>📜 Paragraph 3:</strong> The connection between fans and their shirt transcends trophies. A jersey carries the sweat of legends, the roar of stadiums, and memories of last-minute goals. Modern heritage collections keep that magic alive.
-    </div>
-  </div>
 
-  <!-- PAGE 2: CHELSEA -->
-  <div id="chelsea-page" class="page">
-    <h1>💙 Chelsea FC · The Pride of London</h1>
-    <div class="para-card">
-      <strong>📖 Chelsea Heritage:</strong> Founded in 1905, Chelsea's royal blue shirt became iconic during the 1960s. The club has evolved from the "Pensioners" to modern European giants, with jerseys featuring the classic lion rampant crest.
+    <!-- ==================== HERITAGE SECTION (extra page section) ==================== -->
+    <div id="heritage-section" class="page-section">
+        <h1>📜 Jersey Heritage & Cultural Impact</h1>
+        <div class="formatted-para"><strong>✍️ Paragraph 4:</strong> The first football jerseys were simple woolen shirts with heavy cotton. Over decades, synthetic fabrics improved comfort and performance. Today, clubs release retro collections to honor the old-school designs that fans adore.</div>
+        <div class="formatted-para"><strong>🌍 Paragraph 5:</strong> Collectors hunt for match-worn vintage jerseys, some auctioned for thousands. The cultural significance of shirts like Maradona's Napoli or Beckham's Manchester United 7 transcends sport, becoming wearable art and historical artifacts.</div>
+        
+        <!-- extra video for heritage section (makes total videos >2, enhancing richness) -->
+        <div class="two-columns">
+            <div class="col">
+                <div class="media-container">
+                    <video class="custom-video" controls poster="https://picsum.photos/id/145/400/220">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    </video>
+                    <div class="caption">📼 Retro kits: a journey through time</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="media-container">
+                    <img src="https://picsum.photos/id/157/400/220" alt="vintage jersey wall">
+                    <div class="caption">🧵 1980s retro classics collection</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="jersey-grid">
+            <div class="media-container"><img src="https://picsum.photos/id/145/300/180" alt="1930s jersey"><div class="caption">📸 1930s wool jersey</div></div>
+            <div class="media-container"><img src="https://picsum.photos/id/157/300/180" alt="1980s retro"><div class="caption">🧵 1980s retro classic</div></div>
+            <div class="media-container"><img src="https://picsum.photos/id/162/300/180" alt="modern heritage"><div class="caption">⚡ Modern heritage edition</div></div>
+        </div>
+        
+        <div class="nested-list-box">
+            <h3>🏛️ Iconic Shirt Moments (Nested 5+ items)</h3>
+            <ul>
+                <li>🇦🇷 Maradona's Napoli 1987
+                    <ul><li>Light blue iconic stripe</li><li>Serie A legend</li></ul>
+                </li>
+                <li>🏴󠁧󠁢󠁥󠁮󠁧󠁿 1966 England World Cup
+                    <ul><li>Bobby Moore's red shirt</li><li>Classic simple design</li></ul>
+                </li>
+                <li>🇧🇷 1970 Brazil Yellow
+                    <ul><li>Pelé's eternal shirt</li><li>World Cup masterpiece</li></ul>
+                </li>
+                <li>🇮🇹 1982 Italy Blue
+                    <ul><li>Rossi & Zoff triumph</li><li>Third star victory</li></ul>
+                </li>
+                <li>🇫🇷 1998 Zidane Blue
+                    <ul><li>Home World Cup victory</li><li>Iconic number 10</li></ul>
+                </li>
+                <li>🇵🇹 2016 Portugal Euro shirt
+                    <ul><li>Underdog glory</li><li>Eder's legacy</li></ul>
+                </li>
+            </ul>
+        </div>
+        <div class="formatted-para"><strong>🎖️ Final Heritage Note:</strong> Modern clubs release authentic and replica jerseys, enabling every fan to wear the same colors as their heroes. The heritage remains eternal — passed down from grandparents to grandchildren, from stadiums to streets.</div>
     </div>
-    <div class="jersey-grid">
-      <div class="media-card"><img src="https://www.google.com/imgres?q=football%20jerseys%20for%20chelsea%20&imgurl=https%3A%2F%2Fwww.subsidesports.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fa040a21e1c3b4946b492b9b6109718c0%2Fe%2Fb%2Feb5833138ec89371546c4483fa1ff76ce2f848f1472924df4b584284962c3412.jpeg&imgrefurl=https%3A%2F%2Fwww.subsidesports.com%2Fuk%2Fteam%2Fpremier-league%2Fchelsea&docid=kxAh9QHRCnK4RM&tbnid=FKaoNkJTnRli2M&vet=12ahUKEwj2ss2x392TAxVBTaQEHWqBA9IQnPAOegUIgAEQAQ..i&w=360&h=360&hcb=2&ved=2ahUKEwj2ss2x392TAxVBTaQEHWqBA9IQnPAOegUIgAEQAQ" alt="Chelsea retro"><div>🏆 1998 FA Cup shirt</div></div>
-      <div class="media-card"><img src="https://picsum.photos/id/22/300/200" alt="Chelsea modern"><div>⭐ 2021 Champions League edition</div></div>
-      <div class="media-card"><img src="https://picsum.photos/id/32/300/200" alt="Chelsea third kit"><div>💎 2005 centenary jersey</div></div>
-    </div>
-    <h2>📋 Chelsea Kit Milestones</h2>
-    <table class="styled-table">
-      <tr><th>Season</th><th>Kit Style</th><th>Notable Achievement</th></tr>
-      <tr><td>1970-72</td><td>Classic Blue with white trim</td><td>FA Cup Winner</td></tr>
-      <tr><td>2004-06</td><td>Fly Emirates sponsor, dark blue</td><td>Back-to-back Premier League titles</td></tr>
-      <tr><td>2012-13</td><td>Samsung shirt, golden accents</td><td>Champions League triumph</td></tr>
-      <tr><td>2020-21</td><td>3 Lion crest, Nike design</td><td>UCL glory again</td></tr>
-      <tr><td>2024-25</td><td>Retro-inspired collar</td><td>Modern heritage collection</td></tr>
-    </table>
-    <div class="para-card"><strong>✨ Blue Legacy:</strong> Chelsea’s shirt embodies resilience. From the 1970 final to the 2012 Munich miracle, the blue jersey stands for dramatic comebacks.</div>
-  </div>
-
-  <!-- PAGE 3: FC BARCELONA -->
-  <div id="barca-page" class="page">
-    <h1>🔴🔵 FC Barcelona · Més que un club</h1>
-    <div class="para-card">
-      <strong>📖 Blaugrana Heritage:</strong> Founded in 1899, Barça’s vertical stripes are a symbol of Catalan identity. The jersey represents more than football — it's a banner of culture, democracy, and excellence. From Cruyff to Messi, the stripes carry magic.
-    </div>
-    <div class="two-columns">
-      <div class="col"><div class="media-card"><img src="https://www.google.com/imgres?q=football%20jerseys%20for%20chelsea%20&imgurl=https%3A%2F%2Faztecasoccer.com%2Fcdn%2Fshop%2Ffiles%2Fnike-kids-chelsea-2024-25-third-jersey-black-pink-front.jpg%3Fv%3D1725408333%26width%3D1406&imgrefurl=https%3A%2F%2Faztecasoccer.com%2Fproducts%2Fnike-kids-chelsea-2024-25-third-jersey-black-pink%3Fsrsltid%3DAfmBOoraSkGkYf9twtYrYy0dcYyXhybWyTP9iMUbrgG20jK5Nh5fyDP9&docid=UoZtxhyMRbxncM&tbnid=6KC7DdECTETP6M&vet=12ahUKEwj2ss2x392TAxVBTaQEHWqBA9IQnPAOegQIJRAB..i&w=1406&h=1406&hcb=2&ved=2ahUKEwj2ss2x392TAxVBTaQEHWqBA9IQnPAOegQIJRAB"><div>🌟 Dream Team 1992</div></div></div>
-      <div class="col"><div class="media-card"><img src="https://picsum.photos/id/66/400/250" alt="Messi jersey"><div>🐐 2009 Sextuple shirt</div></div></div>
-    </div>
-    <div class="media-card"><img src="https://picsum.photos/id/77/800/300" alt="Camp Nou mosaic"><div>🏟️ Iconic Camp Nou - Jersey tributes</div></div>
-    <div class="para-card"><strong>🎗️ More than a shirt:</strong> In 2010, Barça wore a special 'Unicef' logo, first time paying to display a charity. Their jersey heritage includes the famous "senyera" stripes on the sleeve.</div>
-  </div>
-
-  <!-- PAGE 4: MANCHESTER UNITED -->
-  <div id="manutd-page" class="page">
-    <h1>🔴 Manchester United · Theatre of Dreams</h1>
-    <div class="para-card">
-      <strong>📖 Red Devils Icon:</strong> Since the Busby Babes to the treble winners of 1999, Man United's red jersey became a global phenomenon. The classic white collar and black shorts (1990s) is an iconic silhouette.
-    </div>
-    <div class="jersey-grid">
-      <div class="media-card"><img src="https://picsum.photos/id/78/300/200" alt="1999 jersey"><div>🏆 1999 Treble Kit</div></div>
-      <div class="media-card"><img src="https://picsum.photos/id/80/300/200" alt="2008 Ronaldo"><div>⚡ 2008 CR7 era</div></div>
-      <div class="media-card"><img src="https://picsum.photos/id/90/300/200" alt="1986 away"><div>🎽 1986 Adidas original</div></div>
-    </div>
-    <h2>📅 Historic United Shirts</h2>
-    <table class="styled-table">
-      <tr><th>Decade</th><th>Design highlight</th><th>Legend</th></tr>
-      <tr><td>1960s</td><td>Plain red, white shorts</td><td>George Best</td></tr>
-      <tr><td>1990-92</td><td>Sharp sponsor, geometric pattern</td><td>Bryan Robson</td></tr>
-      <tr><td>1998-99</td><td>Umbro, black collar</td><td>Ole Gunnar Solskjær</td></tr>
-      <tr><td>2007-09</td><td>AIG logo, sleek fit</td><td>Ronaldo & Rooney</td></tr>
-    </table>
-    <div class="para-card"><strong>💫 Legacy:</strong> The "Red Army" jersey holds memories of Busby, Ferguson and the comeback spirit.</div>
-  </div>
-
-  <!-- PAGE 5: REAL MADRID -->
-  <div id="realmadrid-page" class="page">
-    <h1>⚪ Real Madrid · La Casa Blanca</h1>
-    <div class="para-card">
-      <strong>📖 All-White Elegance:</strong> Since 1902, Real Madrid’s pure white kit symbolizes royalty, class, and European dominance. The shirt has evolved with golden accents and modern designs but remains iconic for its simplicity and greatness.
-    </div>
-    <div class="two-columns">
-      <div class="col"><div class="media-card"><img src="https://picsum.photos/id/100/400/240" alt="Di Stefano era"><div>🏅 Di Stéfano 1950s</div></div></div>
-      <div class="col"><div class="media-card"><img src="https://picsum.photos/id/104/400/240" alt="Zidane jersey"><div>🎩 Zidane 2002 final shirt</div></div></div>
-    </div>
-    <div class="media-card"><img src="https://picsum.photos/id/106/800/250" alt="Bernabeu fans"><div>🤍 Bernabéu White Wall</div></div>
-    <table class="styled-table">
-      <tr><th>Edition</th><th>Special Feature</th><th>UCL titles won</th></tr>
-      <tr><td>2014-15</td><td>Dragon third kit</td><td>La Décima (2014)</td></tr>
-      <tr><td>2016-17</td><td>Classic gold trim</td><td>Back-to-back UCL</td></tr>
-      <tr><td>2022-23</td><td>Retro style</td><td>14th European Cup</td></tr>
-     </table>
-    <div class="para-card"><strong>✨ Galácticos shine:</strong> The white jersey has been worn by legends like Zidane, Ronaldo Nazário, and Cristiano Ronaldo, becoming a symbol of winning mentality.</div>
-  </div>
-
-  <!-- PAGE 6: HERITAGE (extra page) -->
-  <div id="heritage-page" class="page">
-    <h1>📜 Jersey Heritage & Evolution</h1>
-    <div class="para-card">
-      <strong>✍️ Paragraph 4:</strong> The first football jerseys were simple woolen shirts. Over decades, synthetic fabrics improved performance and comfort. Today, clubs release retro collections to honor the old-school designs that fans adore.
-    </div>
-    <div class="para-card">
-      <strong>🌍 Paragraph 5:</strong> Collectors hunt for match-worn vintage jerseys, some auctioned for thousands. The cultural significance of shirts like Maradona's Napoli or Beckham's Manchester United 7 transcends sport, becoming art.
-    </div>
-    <!-- additional heritage jersey visuals -->
-    <div class="jersey-grid">
-      <div class="media-card"><img src="https://picsum.photos/id/145/300/180" alt="old jersey"><div>📸 1930s style</div></div>
-      <div class="media-card"><img src="https://picsum.photos/id/157/300/180" alt="retro kit"><div>🧵 1980s retro</div></div>
-      <div class="media-card"><img src="https://picsum.photos/id/162/300/180" alt="modern classic"><div>⚡ Modern heritage edition</div></div>
-    </div>
-    <div class="nested-list">
-      <h3>🏛️ Iconic Shirt Moments (nested 5+ items)</h3>
-      <ul>
-        <li>🇦🇷 Maradona's Napoli 1987
-          <ul><li>Light blue iconic stripe</li><li>Serie A legend</li></ul>
-        </li>
-        <li>🏴󠁧󠁢󠁥󠁮󠁧󠁿 1966 England World Cup jersey
-          <ul><li>Red Bobby Moore shirt</li><li>Classic simple design</li></ul>
-        </li>
-        <li>🇧🇷 1970 Brazil Yellow
-          <ul><li>Pelé's eternal shirt</li><li>World Cup masterpiece</li></ul>
-        </li>
-        <li>🇮🇹 1982 Italy blue
-          <ul><li>Rossi & Zoff</li><li>Third star triumph</li></ul>
-        </li>
-        <li>🇫🇷 1998 Zidane blue
-          <ul><li>Home World Cup victory</li><li>iconic number 10</li></ul>
-        </li>
-        <li>🇵🇹 2016 Eder's Euro shirt
-          <ul><li>Underdog glory</li></ul>
-        </li>
-      </ul>
-    </div>
-    <div class="para-card"><strong>🎖️ Final note:</strong> Modern clubs release authentic and replica jerseys, enabling every fan to wear the same colors as their heroes. The heritage remains eternal.</div>
-  </div>
 </div>
 
 <footer>
-  <p>© 2025 Jersey Heritage Archive — Celebrating football culture, iconic kits & timeless stories. | Follow the legacy ⚡</p>
-  <p style="margin-top:8px;">✨ “A jersey is not just cloth, it’s a memory woven with passion” ✨</p>
+    <p>© 2025 Legacy Kits — Celebrating Football Jersey Heritage | Chelsea · Barcelona · Manchester United · Real Madrid</p>
+    <p style="margin-top: 8px;">⚽ “A jersey is not just cloth — it's a memory woven with passion and glory” ⚽</p>
+    <p style="margin-top: 5px; font-size: 0.8rem;">🎥 Exclusive heritage videos • Iconic shirt stories • Retro collection</p>
 </footer>
 
 <script>
-  const pages = ['home', 'chelsea', 'barca', 'manutd', 'realmadrid', 'heritage'];
-  function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(page => {
-      page.classList.remove('active-page');
-    });
-    const active = document.getElementById(pageId + '-page');
-    if(active) active.classList.add('active-page');
-    window.location.hash = pageId;
-  }
+    // smooth scroll behavior is already native via CSS scroll-behavior: smooth
+    // additional active highlight for menu while scrolling (optional polish)
+    const sections = document.querySelectorAll('.page-section');
+    const navLinks = document.querySelectorAll('.menu-bar a');
 
-  document.querySelectorAll('.menu-bar a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const page = link.getAttribute('data-page');
-      if(page && pages.includes(page)) showPage(page);
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPos = window.scrollY + 100;
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.style.background = '#1e4a6e';
+            const href = link.getAttribute('href').substring(1);
+            if (href === current) {
+                link.style.background = '#6a1b9a';
+            }
+        });
     });
-  });
-
-  function hashChange() {
-    let hash = window.location.hash.substring(1);
-    if(hash && pages.includes(hash)) showPage(hash);
-    else showPage('home');
-  }
-  window.addEventListener('hashchange', hashChange);
-  if(window.location.hash) hashChange(); else showPage('home');
 </script>
 </body>
 </html>
